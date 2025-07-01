@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIVISIONE ARMA RP - REGOLAMENTO UFFICIALE</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, #1a0a0a 0%, #0d0d0d 100%); /* Sfondo nero e rosso scuro, molto profondo */
+            color: #f0f0f0; /* Testo molto chiaro per contrasto */
+            line-height: 1.8;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 3rem 1.5rem;
+            overflow-x: hidden; /* Evita scroll orizzontale */
+        }
+        .container {
+            max-width: 1050px; /* Larghezza massima leggermente aumentata */
+            width: 100%;
+            padding: 3.5rem; /* Padding più generoso */
+            background-color: rgba(20, 20, 20, 0.95); /* Sfondo del contenitore quasi nero, leggermente trasparente */
+            border-radius: 28px; /* Angoli ancora più arrotondati */
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6); /* Ombra più scura e diffusa */
+            border: 3px solid #e74c3c; /* Bordo rosso intenso */
+            animation: fadeInScale 1s ease-out forwards; /* Animazione all'apertura più lenta */
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            color: #e74c3c; /* Rosso intenso per i titoli */
+            text-shadow: 0 0 20px rgba(231, 76, 60, 0.8); /* Ombra luminosa rossa */
+            transition: color 0.3s ease, text-shadow 0.3s ease; /* Transizione per hover */
+        }
+        h1 {
+            font-size: 4.2rem; /* Titolo principale ancora più grande */
+            text-align: center;
+            margin-bottom: 3.5rem;
+            letter-spacing: 3px; /* Spaziatura maggiore */
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #e74c3c, #f39c12); /* Gradiente per il testo del titolo */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s infinite alternate; /* Animazione di bagliore */
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #e74c3c, 0 0 20px #e74c3c, 0 0 30px #f39c12; }
+            to { text-shadow: 0 0 20px #e74c3c, 0 0 30px #e74c3c, 0 0 40px #f39c12; }
+        }
+
+        h2 {
+            font-size: 2.8rem; /* Titoli di sezione più grandi */
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #c0392b; /* Bordo rosso scuro più spesso */
+            padding-bottom: 1.2rem;
+            color: #e74c3c; /* Rosso intenso */
+            text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+        h3 {
+            font-size: 2.2rem; /* Sottotitoli più grandi */
+            margin-top: 3.5rem;
+            margin-bottom: 1.8rem;
+            color: #f39c12; /* Arancione brillante */
+            text-shadow: 0 0 8px rgba(243, 156, 18, 0.4);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(40, 40, 40, 0.9)); /* Gradiente scuro per gli elementi della lista */
+            border: 1px solid #333; /* Bordo sottile nero */
+            border-radius: 18px; /* Angoli arrotondati */
+            padding: 2rem 2.5rem; /* Padding generoso */
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: flex-start;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background 0.4s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+        }
+        li::before { /* Effetto bordo animato */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 18px;
+            background: linear-gradient(45deg, #e74c3c, #f39c12, #c0392b); /* Gradiente rosso/arancione per il bordo */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            transform: scale(0.95);
+        }
+        li:hover {
+            transform: translateY(-10px) scale(1.03); /* Effetto hover più dinamico e ingrandimento */
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7); /* Ombra più forte e diffusa */
+            background: linear-gradient(145deg, rgba(40, 40, 40, 0.95), rgba(50, 50, 50, 0.95)); /* Sfondo più scuro all'hover */
+        }
+        li:hover::before {
+            opacity: 1; /* Mostra il bordo animato all'hover */
+            transform: scale(1);
+        }
+        .rule-content {
+            flex-grow: 1;
+            font-size: 1.2rem; /* Testo della regola più grande */
+            color: #e0e0e0; /* Testo chiaro */
+        }
+        .icon {
+            font-weight: bold;
+            font-size: 2.2rem; /* Icone ancora più grandi */
+            margin-right: 2rem;
+            flex-shrink: 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Ombra luminosa per le icone */
+            animation: pulse 1.5s infinite alternate; /* Animazione di pulsazione per le icone */
+        }
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .icon-red { color: #e74c3c; } /* Rosso intenso */
+        .icon-orange { color: #f39c12; } /* Arancione brillante */
+        .icon-green { color: #2ecc71; } /* Verde smeraldo */
+        .icon-exclamation { color: #c0392b; } /* Rosso scuro per enfasi */
+
+        footer {
+            text-align: center;
+            margin-top: 7rem; /* Margine superiore aumentato */
+            padding-top: 3.5rem;
+            border-top: 1px solid #333; /* Bordo footer nero */
+            color: #a0a0a0; /* Grigio medio */
+            font-size: 1.15rem;
+        }
+        .header-info {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #c0c0c0; /* Grigio chiaro */
+            font-size: 1.15rem;
+        }
+        .header-info p {
+            margin: 0.6rem 0;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="container">
+        <header>
+            <h1>DIVISIONE ARMA RP</h1>
+            <h2 class="text-center text-gray-700">REGOLAMENTO UFFICIALE</h2>
+            <div class="header-info">
+                <p><strong>Titolo del Documento:</strong> Linee Guida di Gioco</p>
+                <p><strong>Data Creazione:</strong> 01/07/2025</p>
+                <p><strong>Classificazione:</strong> [PUBBLICO]</p>
+                <p><strong>Responsabile:</strong> mzxnoble6</p>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <h2>SISTEMA SANZIONATORIO IN GIOCO</h2>
+                <ul id="sanzioni-gioco-list">
+                    <li><span class="icon icon-exclamation">❗</span> <div class="rule-content"><strong>Alto Tradimento:</strong> Sanzione: RIMOZIONE DAL GRADO, ESPULSIONE PERMANENTE (BAN), INSERIMENTO IN BLACKLIST.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content"><strong>Violazione Molto Grave:</strong> Sanzione: AVVERTIMENTO (WARN), BANDO TEMPORANEO DI 7 ORE, SOSPENSIONE DI 8/9 GIORNI, DEGRADAZIONE.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content"><strong>Violazione Grave:</strong> Sanzione: AVVERTIMENTO (WARN), ESPULSIONE (KICK), SOSPENSIONE DI 6 GIORNI, DEGRADAZIONE.</div></li>
+                    <li><span class="icon icon-green">🟢</span> <div class="rule-content"><strong>Violazione Lieve:</strong> Sanzione: RICHIAMO VERBALE, ESPULSIONE (KICK), SOSPENSIONE DI 1/2 GIORNI.</div></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>NORME COMPORTAMENTALI GENERALI</h2>
+                <h3>FUORI DAL GIOCO (OFF RP):</h3>
+                <ul id="off-rp-list">
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">È assolutamente proibito praticare il RDM (Random Deathmatch), che consiste nell'eliminare un altro giocatore senza un valido motivo.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">L'abuso del comando "fly" da parte degli admin (Adonis) per spostamenti ingiustificati è severamente vietato.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Guidare veicoli senza la necessaria patente di guida è rigorosamente proibito.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">L'uso eccessivo delle manette su altri giocatori è severamente vietato.</div></li>
+                    <li><span class="icon icon-green">🟢</span> <div class="rule-content">È vietato sfruttare qualsiasi tipo di bug o anomalia di gioco (glitch) a proprio vantaggio.</div></li>
+                    <li><span class="icon icon-green">🟢</span> <div class="rule-content">L'inattività (AFK) durante le sessioni di addestramento (training) senza una valida ragione è proibita.</div></li>
+                    <li><span class="icon icon-green">🟢</span> <div class="rule-content">È proibito per i criminali iniziare scontri a fuoco all'interno delle aree sicure (safe zones/pads).</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">Pilotare elicotteri senza possedere l'apposito brevetto non è permesso.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">È vietato proferire insulti, minacce o tenere comportamenti offensivi verso altri giocatori, tramite qualsiasi canale di comunicazione.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Interferire deliberatamente con l'esperienza di gioco altrui, sabotando eventi o ingannando altri giocatori, è contro le regole.</div></li>
+                    <li><span class="icon icon-exclamation">❗</span> <div class="rule-content">L'utilizzo di software o applicazioni esterne per ottenere vantaggi illeciti (exploiting) è severamente vietato.</div></li>
+                    <li><span class="icon icon-exclamation">❗</span> <div class="rule-content">La creazione di server o community ostili a ITALY è proibita.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Ignorare gli ordini impartiti da un superiore gerarchico è vietato.</div></li>
+                    <li><span class="icon icon-exclamation">❗</span> <div class="rule-content">È IMPERATIVO mostrare sempre rispetto ed evitare di insultare i membri dell'Amministrazione e della Dirigenza.</div></li>
+                </ul>
+
+                <h3>IN GIOCO (ON RP):</h3>
+                <ul id="on-rp-list">
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Il Fail RP è assolutamente vietato. Questo termine include ogni azione irrealistica o forzata che non sarebbe possibile compiere nella vita reale.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Il powergame è assolutamente vietato. Consiste nello sfruttare le meccaniche di gioco in modo scorretto per ottenere risultati impossibili, come sopravvivere a cadute mortali.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Il VDM (Vehicle Deathmatch) e il RDM (Random Deathmatch) sono rigorosamente proibiti. Non è permesso uccidere un altro giocatore con un veicolo o senza una valida giustificazione di ruolo. Ad esempio, non si può sparare a un Carabiniere senza un motivo valido durante un controllo.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">Il metagame è assolutamente vietato. Non è consentito utilizzare informazioni ottenute fuori dal contesto di gioco (es. da dirette streaming) per trarne vantaggio.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">È obbligatorio interpretare la paura in situazioni che la richiederebbero (no-fear). Comportamenti irrealistici di fronte al pericolo potranno portare a sanzioni, inclusa la morte permanente del personaggio (permadeath) se supportati da prove video.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">Il Revenge Kill è assolutamente vietato. Non è permesso cercare di uccidere o vendicarsi del personaggio che ci ha eliminato in precedenza.</div></li>
+                    <li><span class="icon icon-green">🟢</span> <div class="rule-content">Il mixchat è proibito. Le conversazioni di gioco (IC) non devono essere mescolate con quelle fuori dal gioco (OOC).</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Insultare giocatori o staff fuori dal contesto di ruolo (OOC) non sarà tollerato. Qualsiasi offesa OOC è diretta alla persona reale e non al personaggio.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Sfruttare bug o glitch di qualsiasi tipo è rigorosamente vietato.</div></li>
+                    <li><span class="icon icon-green">🟢</span> <div class="rule-content">L'inattività prolungata (AFK) è proibita.</div></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>REGOLAMENTO DISCORD</h2>
+                <h3>SISTEMA SANZIONATORIO DISCORD</h3>
+                <ul id="sanzioni-discord-list">
+                    <li><span class="icon icon-exclamation">❗</span> <div class="rule-content"><strong>Violazione Gravissima:</strong> Sanzione: BANDO TEMPORANEO DI 1 SETTIMANA, ESPULSIONE DAL SERVER, BANDO PERMANENTE DAL SERVER.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content"><strong>Violazione Molto Grave:</strong> Sanzione: AVVERTIMENTO (WARN), BANDO TEMPORANEO DI 1 GIORNO, ESPULSIONE DAL SERVER.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content"><strong>Violazione Grave:</strong> Sanzione: AVVERTIMENTO (WARN), ESPULSIONE DALLA CHAT VOCALE, BANDO TEMPORANEO DI 1 ORA.</div></li>
+                    <li><span class="icon icon-green">🟢</span> <div class="rule-content"><strong>Violazione Lieve:</strong> Sanzione: RICHIAMO, SILENZIAMENTO PER 5 MINUTI, AVVERTIMENTO (WARN), ESPULSIONE DALLA CHAT VOCALE.</div></li>
+                </ul>
+
+                <h3>NORME GENERALI SU DISCORD:</h3>
+                <ul id="discord-rules-list">
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">È vietato minacciare, insultare o adottare comportamenti tossici che possano danneggiare la community.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">Linguaggio volgare o inappropriato nella chat generale è proibito.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">È vietato "pingare" inutilmente la Fondazione o la Direzione.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Richiedere ruoli o gradi (free rank) in messaggio privato è proibito.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Assegnare privilegi speciali è consentito solo in casi eccezionali, a discrezione dello staff per la gestione del server.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Applicare sanzioni senza prove concrete è vietato; la Direzione agirà solo sulla base di prove verificabili.</div></li>
+                    <li><span class="icon icon-red">🔴</span> <div class="rule-content">Mancare di serietà e rispetto verso gli altri è severamente proibito.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">Discutere della durata delle chiamate con altri utenti o usare un linguaggio inappropriato è vietato.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">L'invio di immagini è limitato ai canali appositi. È permesso inviare GIF nella chat generale, ma la scrittura nel canale "Foto e Video" è limitata a 2 messaggi per utente.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">I comandi dei bot devono essere usati esclusivamente nel canale dedicato "Comandi Bot".</div></li>
+                    <li><span class="icon icon-green">🟢</span> <div class="rule-content">L'uso inappropriato delle soundboard è vietato.</div></li>
+                    <li><span class="icon icon-orange">🟠</span> <div class="rule-content">Riprodurre canzoni con testi offensivi o inappropriati è vietato.</div></li>
+                    <li><span class="icon icon-green">🟢</span> <div class="rule-content">Richiedere assistenza senza fornire prove concrete dell'accaduto non è permesso.</div></li>
+                    <li><span class="icon icon-exclamation">❗</span> <div class="rule-content">È ASSOLUTAMENTE vietato mancare di rispetto o insultare l'Amministrazione e la Direzione.</div></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-center">Disposizioni Finali</h2>
+                <p class="text-center text-gray-300 mb-4">Le sospensioni sono applicabili dal grado di Sottotenente in su e devono essere approvate dal Comandante Generale, dal Vice Comandante Generale o dal Ministero della Difesa. Le segnalazioni per sospensioni possono essere inoltrate dal grado di Capitano o superiori.</p>
+                <p class="text-center text-gray-300 mb-4">Il rispetto di queste regole è obbligatorio per TUTTI. La scusa "Non ho letto il regolamento, sono nuovo" non sarà accettata e comporterà comunque una punizione.</p>
+                <p class="text-center text-gray-300">Sarete costantemente monitorati dal D.I.S e dal Team di Moderazione.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>FATTO DA mzxnoble6</p>
+            <p>FIRMATO mzxnoble6</p>
+        </footer>
+    </div>
+
+    <script>
+        // Nessuno script JavaScript è necessario.
+    </script>
+</body>
+</html>

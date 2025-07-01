@@ -1,169 +1,204 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DIVISIONE ARMA RP - Regolamento Ufficiale</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>ARMA RP – Regolamento Ufficiale</title>
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    /* Animated gradient background */
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    :root {
+      --bg-color: #f0f0e8;
+      --text-color: #222;
+      --card-bg: #fff;
+      --border-color: #ccc;
     }
-    .animated-bg {
-      background: linear-gradient(-45deg, #000000, #2f2f2f, #1a1a1a, #3a3a3a);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --card-bg: #1e1e1e;
+      --border-color: #444;
     }
-    /* Fade-in up for content */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      transition: background 0.3s, color 0.3s;
     }
-    .fade-in {
-      animation: fadeInUp 0.6s ease-out both;
+
+    h1 {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 5px;
+      color: var(--text-color);
+    }
+
+    .intro {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 25px;
+      color: var(--text-color);
+    }
+
+    .legend {
+      max-width: 500px;
+      background: var(--card-bg);
+      border-radius: 6px;
+      padding: 15px 20px;
+      margin: 20px auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      color: var(--text-color);
+    }
+
+    .legend h3 {
+      margin: 0 0 10px;
+      text-align: left;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin: 6px 0;
+    }
+
+    .legend-color {
+      width: 30px;
+      height: 6px;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+
+    .section {
+      margin: 0 auto;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+
+    .rule-card {
+      position: relative;
+      background: var(--card-bg);
+      border-left: 4px solid transparent;
+      padding: 12px 20px;
+      margin: 10px 0;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
+      color: var(--text-color);
+    }
+
+    .rule-card.critical { border-color: #000; }
+    .rule-card.very-severe { border-color: #c00; }
+    .rule-card.severe { border-color: #e68a00; }
+    .rule-card.low { border-color: #0a0; }
+
+    .rule-text {
+      margin: 0;
+    }
+
+    .toggle-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 14px;
+      color: var(--text-color);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+      z-index: 1000;
     }
   </style>
 </head>
-<body class="animated-bg text-gray-100 antialiased">
-  <div class="max-w-4xl mx-auto py-12 px-6 fade-in">
-    <!-- Header -->
-    <header class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-white mb-2">DIVISIONE ARMA RP</h1>
-      <p class="text-lg text-gray-300 font-medium">Regolamento Ufficiale</p>
-      <div class="mt-6 grid grid-cols-2 gap-4 text-left text-sm text-gray-400">
-        <div><span class="font-semibold text-gray-200">Titolo del Documento:</span> Linee Guida di Gioco</div>
-        <div><span class="font-semibold text-gray-200">Data Creazione:</span> 01 Luglio 2025</div>
-        <div><span class="font-semibold text-gray-200">Classificazione:</span> Pubblico</div>
-        <div><span class="font-semibold text-gray-200">Responsabile:</span> mzxnoble6</div>
-      </div>
-    </header>
+<body>
 
-    <main class="space-y-12">
-      <!-- Sistema Sanzionatorio in Gioco -->
-      <section class="fade-in">
-        <h2 class="text-2xl font-semibold text-gray-200 border-b-2 border-gray-600 pb-2 mb-6">Sistema Sanzionatorio in Gioco</h2>
-        <ul class="space-y-4">
-          <li class="p-4 bg-gray-800 bg-opacity-60 rounded-lg shadow hover:shadow-lg transition duration-200 flex items-center">
-            <div class="flex-shrink-0 w-10 h-10 bg-red-700 text-white rounded-full flex items-center justify-center mr-4">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11V5H9v2h2zm0 2v6H9V9h2z" clip-rule="evenodd"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-semibold text-white">Alto Tradimento</p>
-              <p class="text-sm text-gray-300">Rimozione dal grado, espulsione permanente (ban), inserimento in blacklist.</p>
-            </div>
-          </li>
-          <li class="p-4 bg-gray-800 bg-opacity-60 rounded-lg shadow hover:shadow-lg transition duration-200 flex items-center">
-            <div class="flex-shrink-0 w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center mr-4">
-              <span class="text-xl">🔴</span>
-            </div>
-            <div>
-              <p class="font-semibold text-white">Violazione Molto Grave</p>
-              <p class="text-sm text-gray-300">Avvertimento, bando temporaneo di 7 ore, sospensione di 8/9 giorni, degradazione.</p>
-            </div>
-          </li>
-          <li class="p-4 bg-gray-800 bg-opacity-60 rounded-lg shadow hover:shadow-lg transition duration-200 flex items-center">
-            <div class="flex-shrink-0 w-10 h-10 bg-yellow-700 text-white rounded-full flex items-center justify-center mr-4">
-              <span class="text-xl">🟠</span>
-            </div>
-            <div>
-              <p class="font-semibold text-white">Violazione Grave</p>
-              <p class="text-sm text-gray-300">Avvertimento, espulsione (kick), sospensione di 6 giorni, degradazione.</p>
-            </div>
-          </li>
-          <li class="p-4 bg-gray-800 bg-opacity-60 rounded-lg shadow hover:shadow-lg transition duration-200 flex items-center">
-            <div class="flex-shrink-0 w-10 h-10 bg-green-700 text-white rounded-full flex items-center justify-center mr-4">
-              <span class="text-xl">🟢</span>
-            </div>
-            <div>
-              <p class="font-semibold text-white">Violazione Lieve</p>
-              <p class="text-sm text-gray-300">Richiamo verbale, espulsione (kick), sospensione di 1/2 giorni.</p>
-            </div>
-          </li>
-        </ul>
-      </section>
+  <div class="toggle-container" onclick="toggleDarkMode()">🌓 Modalità: <span id="mode-label">Chiara</span></div>
 
-      <!-- Norme Comportamentali Generali -->
-      <section class="fade-in">
-        <h2 class="text-2xl font-semibold text-gray-200 border-b-2 border-gray-600 pb-2 mb-6">Norme Comportamentali Generali</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <!-- Off RP -->
-          <div>
-            <h3 class="text-xl font-medium text-gray-100 mb-4">Fuori dal Gioco (Off RP)</h3>
-            <ul class="space-y-3">
-              <li class="flex items-start space-x-3">
-                <div class="w-8 h-8 mt-1 bg-red-600 text-white rounded-full flex items-center justify-center mr-2">
-                  <span class="text-base">🔴</span>
-                </div>
-                <p class="text-gray-300">È proibito praticare il RDM (Random Deathmatch) senza valido motivo.</p>
-              </li>
-              <!-- altri Off RP -->
-            </ul>
-          </div>
-          <!-- On RP -->
-          <div>
-            <h3 class="text-xl font-medium text-gray-100 mb-4">In Gioco (On RP)</h3>
-            <ul class="space-y-3">
-              <li class="flex items-start space-x-3">
-                <div class="w-8 h-8 mt-1 bg-red-600 text-white rounded-full flex items-center justify-center mr-2">
-                  <span class="text-base">🔴</span>
-                </div>
-                <p class="text-gray-300">Fail RP e comportamenti irrealistici sono vietati.</p>
-              </li>
-              <!-- altri On RP -->
-            </ul>
-          </div>
-        </div>
-      </section>
+  <h1>ARMA RP</h1>
+  <p class="intro">Linee Guida di Gioco – Regolamento Ufficiale<br>Creato il 01/07/2025 | Pubblico | Responsabile: mzxnoble6</p>
 
-      <!-- Regolamento Discord -->
-      <section class="fade-in">
-        <h2 class="text-2xl font-semibold text-gray-200 border-b-2 border-gray-600 pb-2 mb-6">Regolamento Discord</h2>
-        <h3 class="text-xl font-medium text-gray-100 mb-4">Sistema Sanzionatorio Discord</h3>
-        <ul class="space-y-4">
-          <li class="p-4 bg-gray-800 bg-opacity-60 rounded-lg shadow hover:shadow-lg transition duration-200 flex items-center">
-            <div class="w-10 h-10 bg-red-700 text-white rounded-full flex items-center justify-center mr-4">
-              <span class="text-xl">❗</span>
-            </div>
-            <div>
-              <p class="font-semibold text-white">Violazione Gravissima</p>
-              <p class="text-sm text-gray-300">Bando temporaneo di 1 settimana, espulsione dal server, ban permanente.</p>
-            </div>
-          </li>
-          <!-- altri Discord -->
-        </ul>
-        <h3 class="text-xl font-medium text-gray-100 mt-8 mb-4">Norme Generali su Discord</h3>
-        <ul class="space-y-3">
-          <li class="flex items-start space-x-3">
-            <div class="w-8 h-8 mt-1 bg-red-600 text-white rounded-full flex items-center justify-center mr-2">
-              <span class="text-base">🔴</span>
-            </div>
-            <p class="text-gray-300">Minacce, insulti o comportamenti tossici sono vietati.</p>
-          </li>
-          <!-- altri Discord -->
-        </ul>
-      </section>
-
-      <!-- Disposizioni Finali -->
-      <section class="text-center fade-in">
-        <h2 class="text-2xl font-semibold text-white mb-4">Disposizioni Finali</h2>
-        <p class="text-gray-400 mb-2">Le sospensioni sono applicabili dal grado di Sottotenente in su e devono essere approvate dagli alti comandi.</p>
-        <p class="text-gray-400 mb-2">Il rispetto delle regole è obbligatorio per tutti: l'ignoranza del regolamento non è scusante.</p>
-        <p class="text-gray-400">Monitoraggio costante da parte del D.I.S e del Team di Moderazione.</p>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="mt-16 text-center text-sm text-gray-400 fade-in">
-      <p>Fatto da mzxnoble6</p>
-      <p>Firmato mzxnoble6</p>
-    </footer>
+  <div class="legend">
+    <h3>Legenda Livelli di Rischio</h3>
+    <div class="legend-item"><div class="legend-color" style="background:#000;"></div><span>Alto Rischio</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#c00;"></div><span>Rischio Molto Grave</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#e68a00;"></div><span>Rischio Grave</span></div>
+    <div class="legend-item"><div class="legend-color" style="background:#0a0;"></div><span>Rischio Lieve</span></div>
   </div>
+
+  <div class="section">
+
+    <h2>1. Sistema Sanzionatorio (On‑Game)</h2>
+    <div class="rule-card critical"><p class="rule-text">Alto Tradimento: rimozione dal grado e blacklist permanente.</p></div>
+    <div class="rule-card very-severe"><p class="rule-text">Violazione molto grave: avvertimento, bando temporaneo (7h) e sospensione (8–9 giorni).</p></div>
+    <div class="rule-card severe"><p class="rule-text">Violazione grave: avvertimento, kick e sospensione di 6 giorni.</p></div>
+    <div class="rule-card low"><p class="rule-text">Violazione lieve: richiamo verbale, kick e sospensione (1–2 giorni).</p></div>
+
+    <h2>2. Comportamento Fuori Ruolo (Off‑RP)</h2>
+    <div class="rule-card critical"><p class="rule-text">Uso di software esterni per vantaggi illeciti.</p></div>
+    <div class="rule-card critical"><p class="rule-text">Creazione di community ostili a ArmaRP.</p></div>
+    <div class="rule-card very-severe"><p class="rule-text">Interferire con l’esperienza di gioco altrui.</p></div>
+    <div class="rule-card very-severe"><p class="rule-text">Guidare veicoli senza patente.</p></div>
+    <div class="rule-card severe"><p class="rule-text">Uso eccessivo delle manette o pilotaggio elicottero senza brevetto.</p></div>
+    <div class="rule-card low"><p class="rule-text">Sfruttamento di bug o glitch.</p></div>
+    <div class="rule-card low"><p class="rule-text">AFK ingiustificato durante il training.</p></div>
+
+    <h2>3. Comportamento In‑Role (On‑RP)</h2> 
+    <div class="rule-card very-severe"><p class="rule-text">RDM/VDM e power‑gaming vietati.</p></div>
+    <div class="rule-card very-severe"><p class="rule-text">Fail RP e metagame vietati.</p></div>
+    <div class="rule-card severe"><p class="rule-text">Revenge kill e no‑fear obbligatorio.</p></div>
+    <div class="rule-card low"><p class="rule-text">Mixchat o inattività prolungata vietati.</p></div>
+
+    <h2>4. Regolamento Discord</h2>
+    <div class="rule-card critical"><p class="rule-text">Violazione gravissima: bando 1 settimana + permanente.</p></div>
+    <div class="rule-card very-severe"><p class="rule-text">Violazione molto grave: avvertimento + bando 1 giorno.</p></div>
+    <div class="rule-card severe"><p class="rule-text">Violazione grave: kick voce + bando 1 ora.</p></div>
+    <div class="rule-card low"><p class="rule-text">Violazione lieve: silenziamento 5 min + warn.</p></div>
+    <div class="rule-card very-severe"><p class="rule-text">Comportamenti tossici e insulti vietati.</p></div>
+    <div class="rule-card severe"><p class="rule-text">Ping ingiustificato e linguaggio volgare vietato.</p></div>
+    <div class="rule-card low"><p class="rule-text">Comandi bot solo in canale dedicato.</p></div>
+
+    <h2>5. Regole Interazioni Legali</h2>
+    <div class="rule-card critical"><p class="rule-text">Corruzione o abuso di potere da parte di agenti: rimozione immediata dal ruolo e blacklist.</p></div>
+    <div class="rule-card very-severe"><p class="rule-text">Estorsioni o minacce da parte di legali: sospensione lunga + bando Discord.</p></div>
+    <div class="rule-card severe"><p class="rule-text">Abuso del sistema penale (arresti senza prove): sospensione e penalità.</p></div>
+    <div class="rule-card low"><p class="rule-text">Comunicazioni OOC in role da parte di forze dell’ordine: richiamo.</p></div>
+
+    <h2>6. Regole Fazioni e Clan</h2>
+    <div class="rule-card critical"><p class="rule-text">Fazioni non approvate dalla direzione sono vietate.</p></div>
+    <div class="rule-card very-severe"><p class="rule-text">Guerre tra fazioni senza permesso: sospensione e disarmo.</p></div>
+    <div class="rule-card severe"><p class="rule-text">Uso di armi pesanti da parte di fazioni civili: bando armi + sospensione.</p></div>
+    <div class="rule-card low"><p class="rule-text">Attività poco credibili in RP da parte di fazioni: richiamo e monitoraggio.</p></div>
+
+    <h2>7. Uso di Veicoli e Equipaggiamenti</h2>
+    <div class="rule-card critical"><p class="rule-text">Uso di mezzi militari senza autorizzazione: rimozione veicolo + sospensione prolungata.</p></div>
+    <div class="rule-card very-severe"><p class="rule-text">Modifica veicoli per vantaggi illeciti: bando immediato.</p></div>
+    <div class="rule-card severe"><p class="rule-text">Uso di equipaggiamento militare da parte di civili: ritiro + sospensione.</p></div>
+    <div class="rule-card low"><p class="rule-text">Guida spericolata in città: multa IC o sospensione patente RP.</p></div>
+
+    <h2>8. Linee Guida Generali</h2>
+    <div class="rule-card critical"><p class="rule-text">Minacce reali o molestie: blacklist da server e Discord.</p></div>
+    <div class="rule-card very-severe"><p class="rule-text">Pubblicità non autorizzata o spam: ban temporaneo o permanente.</p></div>
+    <div class="rule-card severe"><p class="rule-text">Discriminazioni o hate speech: sospensione e monitoraggio.</p></div>
+    <div class="rule-card low"><p class="rule-text">Uso corretto del linguaggio e rispetto verso tutti i membri.</p></div>
+
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      const label = document.getElementById('mode-label');
+      body.classList.toggle('dark-mode');
+      label.textContent = body.classList.contains('dark-mode') ? 'Scura' : 'Chiara';
+    }
+  </script>
+
 </body>
 </html>
